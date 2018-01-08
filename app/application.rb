@@ -9,6 +9,7 @@ class Application
       item = req.path.split("/items/").last
       if @@items.include?(item)
         resp.write item.price
+        puts item.price
       else
         resp.write "Item not found"
         resp.status = 400
