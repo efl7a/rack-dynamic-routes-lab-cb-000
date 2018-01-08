@@ -10,7 +10,6 @@ class Application
       puts item
       if @@items.include?(item)
         resp.write @@items["#{item}"]
-        puts item.price
       else
         resp.write "Item not found"
         resp.status = 400
