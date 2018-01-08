@@ -7,7 +7,7 @@ class Application
 
     if req.path.match(/items/)
       item_requested = req.path.split("/items/").last
-      if @@items.any?(item_requested)
+      if @@items.include?(item_requested)
         @@items.each do |item|
           if item == item_requested
             resp.write item.name
