@@ -11,8 +11,9 @@ class Application
         puts item.price
       end
       item = req.path.split("/items/").last
-      if @@items.include?(item.name)
-        resp.write item.price
+      if @@items.has_key?(item)
+        item_price = @@items[item]
+        resp.write "#{item} costs #{item_price}"
       else
         resp.write "Item not found"
         resp.status = 400
