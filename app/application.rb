@@ -6,6 +6,10 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
+      @@items.each do |item, price|
+        resp.write item
+        resp.write price
+      end
       item = req.path.split("/items/").last
       if @@items.include?(item.to_s)
         resp.write item
