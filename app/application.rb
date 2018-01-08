@@ -10,10 +10,13 @@ class Application
         puts item.name
         puts item.price
       end
-      item = req.path.split("/items/").last
-      if @@items.has_key?(item)
-        item_price = @@items[item]
-        resp.write "#{item} costs #{item_price}"
+      item_requested = req.path.split("/items/").last
+      if @@items.include?(item_requested)
+        @@items.each do |item|
+          if item == item_requested
+            resp.write item.name
+            resp.write item.price
+          end
       else
         resp.write "Item not found"
         resp.status = 400
