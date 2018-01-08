@@ -7,8 +7,8 @@ class Application
 
     if req.path.match(/items/)
       @@items.each do |item, price|
-        resp.write item
-        resp.write price
+        puts item
+        puts price
       end
       item = req.path.split("/items/").last
       if @@items.include?(item.to_s)
