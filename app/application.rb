@@ -12,7 +12,7 @@ class Application
       end
       item_requested = req.path.split("/items/").last
       puts item_requested
-      if @@items.include?(item_requested)
+      if @@items.any?(item_requested)
         @@items.each do |item|
           if item == item_requested
             resp.write item.name
