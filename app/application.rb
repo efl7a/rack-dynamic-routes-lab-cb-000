@@ -8,7 +8,7 @@ class Application
     if req.path.match(/items/)
       item = req.path.split("/items/").last
       if @@items.include?(item)
-        resp.write @@items["#{item.to_sym}"]
+        resp.write item
       else
         resp.write "Item not found"
         resp.status = 400
