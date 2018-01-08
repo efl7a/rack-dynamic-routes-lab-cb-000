@@ -9,7 +9,7 @@ class Application
       item = req.path.split("/items/").last
       puts item
       @@items.each do |item|
-        puts "#{item} costs #{@@items[:item]}"
+        puts "#{item} costs #{@@items['#{item}']}"
       end
       if @@items.include?(item)
         resp.write @@items["#{item}"]
