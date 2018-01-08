@@ -6,12 +6,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-      @@items.each do |item|
-        puts item.name
-        puts item.price
-      end
       item_requested = req.path.split("/items/").last
-      puts item_requested
       if @@items.any?(item_requested)
         @@items.each do |item|
           if item == item_requested
