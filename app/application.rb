@@ -11,8 +11,8 @@ class Application
         puts item.price
       end
       item = req.path.split("/items/").last
-      if @@items.include?(item.to_s)
-        resp.write item
+      if @@items.include?(item.name)
+        resp.write item.price
       else
         resp.write "Item not found"
         resp.status = 400
