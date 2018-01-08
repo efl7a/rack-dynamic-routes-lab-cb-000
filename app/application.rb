@@ -12,7 +12,7 @@ class Application
         puts "#{item} costs #{@@items['#{item}']}"
       end
       if @@items.include?(item)
-        resp.write @@items["#{item}"]
+        resp.write @@items["#{item.to_sym}"]
       else
         resp.write "Item not found"
         resp.status = 400
