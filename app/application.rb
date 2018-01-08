@@ -7,7 +7,7 @@ class Application
 
     if req.path.match(/items/)
       item = req.path.split("/items/").last
-      if @@items.include?(item)
+      if @@items.include?(item.to_s)
         resp.write item
       else
         resp.write "Item not found"
