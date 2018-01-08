@@ -11,6 +11,7 @@ class Application
         puts item.price
       end
       item_requested = req.path.split("/items/").last
+      puts item_requested
       if @@items.include?(item_requested)
         @@items.each do |item|
           if item == item_requested
