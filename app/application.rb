@@ -7,13 +7,11 @@ class Application
 
     if req.path.match(/items/)
       item_requested = req.path.split("/items/").last
-      if @@items.include?(item_requested)
-        @@items.each do |item|
-          if item == item_requested
-            resp.write item.name
-            resp.write item.price
-          end
+      item_found = @@items.find do |item|
+          item.key == item_requested
         end
+      if item_found
+        resp.write item_found.price
       else
         resp.write "Item not found"
         resp.status = 400
